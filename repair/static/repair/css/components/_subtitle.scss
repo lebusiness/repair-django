@@ -1,0 +1,11 @@
+@use '../abstracts/' as *;
+
+.subtitle {
+    font-size: 20px;
+    color: rgb(65, 65, 65);
+    margin-top: 20px;
+    width: 600px;
+    @media (max-width: map-get($container-max-widths, md)) {
+        width: auto;
+    }
+}

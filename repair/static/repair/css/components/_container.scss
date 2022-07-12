@@ -1,0 +1,43 @@
+@use '../abstracts/' as *;
+
+.container {
+  margin: 0 auto;
+}
+@media (max-width: map-get($container-max-widths, sm)) {
+  .container {
+    max-width: 93%;
+  }
+}
+@media (min-width: map-get($container-max-widths, sm)) {
+  .container {
+    max-width: 540px;
+  }
+}
+@media (min-width: map-get($container-max-widths, md)) {
+  .container {
+    max-width: 720px;
+  }
+}
+@media (min-width: map-get($container-max-widths, lg)) {
+  .container {
+    max-width: 960px;
+  }
+}
+@media (min-width: map-get($container-max-widths, xl)) {
+  .container{
+    max-width: 1140px;
+  }
+}
+@media (min-width: map-get($container-max-widths, xxl)) {
+  .container {
+    max-width: 1220px;
+  }
+}
+@media (min-width: map-get($container-max-widths, xxxl)) {
+  .container {
+    max-width: 1320px;
+  }
+}
+
+
+

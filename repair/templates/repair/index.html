@@ -1,0 +1,31 @@
+{% extends 'repair/base.html' %}
+
+{% block promo_content %}
+    <div class="promo__content">
+        <h1 class="title">RepairAgency</h1>
+        <p class="subtitle">Предоставляем качественный ремонт вашей квартиры</p>
+    </div>
+{% endblock %}
+
+{% block categories_section %}
+    <section class="categories">  
+        <div class="container categories__container">
+            <h2 class="title--md">Категории</h2>
+            <ul class="categories__list">
+                {% for cat in categories %}
+                <li class="card categories__list-item">
+                    <!-- <a  href="{{ cat.get_absolute_url }}" class="card__link categories__list-link"> -->
+                        <img src="{{ cat.img.url }}" alt="категория" class="card__img card__categories__item-img">
+                        <div class="card__content-wrapper">
+                            <p class="card__title categories__item-title">{{ cat.name }}</p>
+                            <p class="card__descr categories__item-descr">{{ cat.descr }}</p>
+                            <a class="btn card__btn" href="{{ cat.get_absolute_url }}">Перейти</a>
+                        </div>
+                    <!-- </a> -->
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+{% endblock %}
+

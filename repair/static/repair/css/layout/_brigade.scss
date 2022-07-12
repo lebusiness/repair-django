@@ -1,0 +1,45 @@
+@use '../abstracts' as *;
+
+.brigade {
+    position: relative;
+    z-index: 2;
+    padding: 50px 0;
+    background: linear-gradient(rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.55)), url('./../images/stone.webp');
+    &__info {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: repeat(6, 1fr);
+        @media (max-width: map-get($container-max-widths, lg)) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        @media (max-width: map-get($container-max-widths, md)) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @media (max-width: map-get($container-max-widths, sm)) {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+    &__item {
+        box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.1);
+        padding: 20px;
+        background: white;
+        border-radius: 5px;
+        text-align: center;
+        @include flex(column, flex-start, center);
+    }
+    svg {
+        width: 50%;
+        fill: #333;
+        @media (max-width: map-get($container-max-widths, md)) {
+            width: 35%;
+        }
+    }
+    &__title {
+        font-weight: 700;
+        margin-top: 15px;
+    }
+    &__data {
+        color: rgb(71, 71, 71);
+        margin-top: 10px;
+    }
+}

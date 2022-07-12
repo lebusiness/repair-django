@@ -1,0 +1,154 @@
+{% extends 'repair/base.html' %}
+
+{% block promo_content %}
+    <div class="promo__content">
+        <h1 class="title">{{ category_title }}</h1>
+        <p class="subtitle">{{ category_descr }}</p>
+    </div>
+{% endblock %}
+
+{% block categories_section %}
+    <section class="categories">  
+        <div class="container categories__container">
+            <h2 class="title--md">Услуги</h2>
+            <ul class="categories__list">
+                {% for serv in services %}
+                <li class="card categories__list-item">
+                    <!-- <a  href="{{ serv.slug }}" class="card__link categories__list-link"> -->
+                        <img src="{{ serv.img.url }}" alt="услуга" class="card__img card__categories__item-img">
+                        <div class="card__content-wrapper">
+                            <p class="card__title categories__item-title">{{ serv.name }}</p>
+                            <p class="card__descr categories__item-descr">{{ serv.descr }}</p>
+                            <a class="btn card__btn" href="{{ category.get_absolute_url}}{{serv.slug}}">Перейти</a>
+                        </div>
+                    <!-- </a> -->
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+{% endblock %}
+
+{% block brigade_section %}
+    <section class="brigade">
+        <h2 style="display: none">Бригада</h2>
+        <div class="container">
+            <div class="brigade__info">
+                <div class="brigade__item">
+                    <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><title>contact</title><path d="M52.47,13h-.76A3.71,3.71,0,0,0,48,16.71V17a8,8,0,0,1-8,8H24a8,8,0,0,1-8-8v-.3A3.71,3.71,0,0,0,12.29,13h-.76A7.53,7.53,0,0,0,4,20.53V49.47A7.53,7.53,0,0,0,11.53,57H52.47A7.53,7.53,0,0,0,60,49.47V20.53A7.53,7.53,0,0,0,52.47,13ZM25.42,46.58H14.64a2.2,2.2,0,0,1-2.13-2.85,8.27,8.27,0,0,1,5.12-5.3.55.55,0,0,0,.09-1A4.52,4.52,0,0,1,20,29a4.62,4.62,0,0,1,4.5,5,4.51,4.51,0,0,1-2.21,3.41.55.55,0,0,0,.09,1,8.26,8.26,0,0,1,5.16,5.31A2.21,2.21,0,0,1,25.42,46.58Zm16.58,0H34a2,2,0,0,1,0-4h8a2,2,0,0,1,0,4Zm8,0a2,2,0,1,1,2-2A2,2,0,0,1,50,46.58ZM50,37H34a2,2,0,0,1,0-4H50a2,2,0,0,1,0,4Z"/><rect x="20" y="7" width="24" height="14" rx="5.54" ry="5.54"/></svg>
+                    <p class="brigade__title">
+                        Название бригады
+                    </p>
+                    <p class="brigade__data">
+                        "{{ brigade_title }}"
+                    </p>
+                </div>
+                <div class="brigade__item">
+                    <svg id="Icons_Users" overflow="hidden" version="1.1" viewBox="0 0 87 87" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><circle cx="24" cy="30.8" r="9"/><circle cx="72" cy="30.8" r="9"/><path d=" M 66 74.2 L 66 65.2 C 66 63.8 65.4 62.4 64.2 61.6 C 61.8 59.6 58.6 58.2 55.4 57.4 C 53.2 56.8 50.6 56.2 48 56.2 C 45.6 56.2 43 56.6 40.6 57.4 C 37.4 58.2 34.4 59.8 31.8 61.6 C 30.6 62.6 30 63.8 30 65.2 L 30 74.2 L 66 74.2 Z"/><circle cx="48" cy="44.8" r="9"/><path d=" M 88.2 47.6 C 85.8 45.6 82.6 44.2 79.4 43.4 C 77.2 42.8 74.6 42.2 72 42.2 C 69.6 42.2 67 42.6 64.6 43.4 C 63.4 43.8 62.2 44.2 61 44.8 L 61 45 C 61 48.4 59.6 51.6 57.4 53.8 C 61.2 55 64.2 56.6 66.6 58.4 C 67.2 59 67.8 59.4 68.2 60.2 L 90 60.2 L 90 51.2 C 90 49.8 89.4 48.4 88.2 47.6 Z"/><path d=" M 29.4 58.4 L 29.4 58.4 C 32.2 56.4 35.4 54.8 38.6 53.8 C 36.4 51.4 35 48.4 35 45 C 35 44.8 35 44.8 35 44.6 C 33.8 44.2 32.6 43.6 31.4 43.4 C 29.2 42.8 26.6 42.2 24 42.2 C 21.6 42.2 19 42.6 16.6 43.4 C 13.4 44.4 10.4 45.8 7.8 47.6 C 6.6 48.4 6 49.8 6 51.2 L 6 60.2 L 27.6 60.2 C 28.2 59.4 28.6 59 29.4 58.4 Z"/></g></svg>
+                    <p class="brigade__title">
+                        Количество рабочих
+                    </p>
+                    <p class="brigade__data">
+                        {{ brigade_count }} рабочих
+                    </p>
+                </div>
+                <div class="brigade__item">
+                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                        viewBox="0 0 611.982 611.983" style="enable-background:new 0 0 611.982 611.983;"
+                        xml:space="preserve">
+                    <g>
+                        <g id="_x37_5">
+                            <g>
+                                <path d="M135.235,364.065c-15.082-15.111-15.082-39.554,0-54.635l192.538-192.569c-48.271-11.594-109.881-0.275-104.742-5.415
+                                    L11.312,323.227c-15.082,15.02-15.082,39.492,0,54.665c0,0,81.708,24.688,92.567,35.547c7.77,7.771,37.199,94.189,37.199,94.189
+                                    c15.081,15.111,39.554,15.111,54.635,0l64.271-64.271c-0.122-0.153-0.214-0.489-0.367-0.643
+                                    C248.757,431.885,135.235,364.065,135.235,364.065z M572.407,118.666c-40.991-40.961-151.975-18.813-145.122-25.574
+                                    l-211.75,211.78c-15.082,15.112-15.082,39.493,0,54.574c0,0,81.708,24.718,92.567,35.577c7.74,7.801,37.199,94.22,37.199,94.22
+                                    c15.081,15.082,39.554,15.082,54.635,0l211.719-211.78C604.834,284.376,631.601,177.859,572.407,118.666z M510.859,230.781
+                                    c-21.995,0-39.799-17.773-39.799-39.737c0-21.964,17.834-39.891,39.799-39.891c21.964,0,39.798,17.865,39.798,39.86
+                                    S532.854,230.781,510.859,230.781z"/>
+                            </g>
+                        </g>
+                    </g>
+                    </svg>
+                    <p class="brigade__title">
+                        Цена за час
+                    </p>
+                    <p class="brigade__data">
+                        {{ brigade_price }}₽
+                    </p>
+                </div>
+                <div class="brigade__item">
+                    <svg id="Icons_User" overflow="hidden" version="1.1" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><circle cx="48" cy="30" r="16"/><path d=" M 80 82 L 80 66 C 80 63.6 78.8 61.2 76.8 59.6 C 72.4 56 66.8 53.6 61.2 52 C 57.2 50.8 52.8 50 48 50 C 43.6 50 39.2 50.8 34.8 52 C 29.2 53.6 23.6 56.4 19.2 59.6 C 17.2 61.2 16 63.6 16 66 L 16 82 L 80 82 Z"/></g></svg>
+                    <p class="brigade__title">
+                        Главный бригады
+                    </p>
+                    <p class="brigade__data">
+                        {{ chief_name }}
+                    </p>
+                </div>
+                <div class="brigade__item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 27"><defs><style>.cls-1{fill:#fff;opacity:0;}.cls-2{fill:#333;}</style></defs><title>phone-call</title><g id="Layer_2" data-name="Layer 2"><g id="phone-call"><g id="phone-call-2" data-name="phone-call"><rect class="cls-1" width="24" height="24"/><path class="cls-2" d="M13,8a3,3,0,0,1,3,3,1,1,0,0,0,2,0,5,5,0,0,0-5-5,1,1,0,0,0,0,2Z"/><path class="cls-2" d="M13,4a7,7,0,0,1,7,7,1,1,0,0,0,2,0,9,9,0,0,0-9-9,1,1,0,0,0,0,2Z"/><path class="cls-2" d="M21.75,15.91a1,1,0,0,0-.72-.65l-6-1.37a1,1,0,0,0-.92.26c-.14.13-.15.14-.8,1.38a9.91,9.91,0,0,1-4.87-4.89C9.71,10,9.72,10,9.85,9.85a1,1,0,0,0,.26-.92L8.74,3a1,1,0,0,0-.65-.72,3.79,3.79,0,0,0-.72-.18A3.94,3.94,0,0,0,6.6,2,4.6,4.6,0,0,0,2,6.6,15.42,15.42,0,0,0,17.4,22,4.6,4.6,0,0,0,22,17.4a4.77,4.77,0,0,0-.06-.76A4.34,4.34,0,0,0,21.75,15.91Z"/></g></g></g></svg>
+                    <p class="brigade__title">
+                        Номер главного 
+                    </p>
+                    <a href="tel:+{{chief_number}}" class="brigade__data">
+                        +{{ chief_number }}
+                    </a>
+                </div>
+                <div class="brigade__item">
+                    <svg version="1.1" id="Capa_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                        viewBox="0 0 459 459" style="enable-background:new 0 0 459 459;" xml:space="preserve">
+                        <g>
+                            <g>
+                                <circle cx="124.312" cy="262.013" r="47.812"/>
+                                <path d="M95.625,323.213v93.712l28.688-28.688L153,416.925v-93.712c-9.562,3.825-19.125,5.737-28.688,5.737
+                                    S105.188,327.038,95.625,323.213z"/>
+                                <path d="M420.75,42.075H38.25C17.212,42.075,0,59.288,0,80.325V328.95c0,21.037,17.212,38.25,38.25,38.25H76.5v-59.287
+                                    c-11.475-11.476-19.125-28.688-19.125-45.9c0-36.337,30.6-66.938,66.938-66.938s66.938,30.6,66.938,66.938
+                                    c0,19.125-7.65,34.425-19.125,45.9V367.2H420.75c21.037,0,38.25-17.213,38.25-38.25V80.325
+                                    C459,59.288,441.787,42.075,420.75,42.075z M401.625,271.575h-114.75V252.45h114.75V271.575z M401.625,214.2H229.5v-19.125
+                                    h172.125V214.2z M401.625,156.825H57.375V137.7h344.25V156.825z"/>
+                            </g>
+                        </g>
+                    </svg>
+                    <p class="brigade__title">
+                        Стаж главного
+                    </p>
+                    <p class="brigade__data">
+                        {{ chief_experience }} (года/лет)
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block gallery_section %}
+    <section class="gallery">
+        <div class="container">
+            <h2 class="title--md">Галерея</h2>
+            <div class="gallery__wrapper">
+                {% for imgItem in portfolioImgs %}
+                    <img class="gallery__img" src="{{ imgItem.img.url }}" alt="портфолио">
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block feedbacks_section %}
+    <section class="feedbacks">
+        <div class="container">
+            <h2 class="title--md">Отзывы</h2>
+            <div class="feedbacks__wrapper">
+                {% for feedback in feedbacks %}
+                    <div class="feedbacks__item">
+                        <span class="feedbacks__name">{{ feedback.name }}</span>
+                        <p class="feedbacks__paragraph">"{{ feedback.text }}"</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

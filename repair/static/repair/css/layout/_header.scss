@@ -1,0 +1,70 @@
+@use '../abstracts' as *;
+
+.header {
+    padding: 20px 0;
+    font-family: 'Montserrat', sans-serif;
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.05);
+    position: relative;
+    z-index: 9;
+    &__top {
+        @include flex(row, space-between, center);
+        @media (max-width: map-get($container-max-widths, md)) {
+            flex-direction: column;
+        }
+    }
+    &__name {
+        font-size: 28px;
+        font-weight: 700;
+        color: #333;
+        span {
+            color: $main-orange;
+        }
+    }
+    &__number {
+        font-size: 18px;
+        transform: translateY(2px);
+        color: #333;
+        @media (max-width: map-get($container-max-widths, md)) {
+            margin-top: 10px;
+        }
+    }
+    &__bottom {
+        margin-top: 20px;
+        border-right: 3px solid $main-orange;
+        @media (max-width: map-get($container-max-widths, sm)) {
+            border: none;
+        }
+    }
+    &__list {
+        padding: 10px 0;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 10px;
+        @media (max-width: map-get($container-max-widths, lg)) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+        @media (max-width: map-get($container-max-widths, md)) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        @media (max-width: map-get($container-max-widths, sm)) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        &-item {
+            font-size: 16px;
+            @media (max-width: map-get($container-max-widths, md)) {
+                font-size: 14px;
+                justify-self: center;
+            }
+        }
+        &-link {
+            color: #333;
+            transition: 0.2s;
+            &:hover {
+                color: $main-orange !important;
+            }
+            &--active {
+                color: $main-orange;
+            }
+        }
+    }
+}

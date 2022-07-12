@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>RepairAgency</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link type="text/css" href="{% static 'repair/css/main.css' %}" rel="stylesheet" />
+</head>
+<body>
+    <header class="header"> 
+        <div class="container header__container">
+            <div class="header__top">
+                <a href="{% url 'home' %}">
+                    <div class="header__name">
+                        <span>Repair</span>Agency
+                    </div>
+                </a>
+                <a href="tel:+79991335212" class="header__number">
+                    +7 (999) 133-52-12
+                </a>
+            </div>
+            <div class="header__bottom">
+                <nav class="header__nav">
+                    <ul class="header__list">
+                        {% for cat in categories %}
+
+                            {% if cat.name == category_title %}
+                            <li class="header__list-item">
+                                <a class="header__list-link header__list-link--active" href="{{ cat.get_absolute_url }}">
+                                    {{cat.name}}
+                                </a>
+                            </li>
+                            {% else %}
+                            <li class="header__list-item">
+                                <a class="header__list-link" href="{{ cat.get_absolute_url }}">
+                                    {{cat.name}}
+                                </a>
+                            </li>
+                            {% endif %}
+
+                        <!-- <li class="header__list-item">
+                            <a class="header__list-link" href="{{ cat.get_absolute_url }}">
+                                {{cat.name}}
+                            </a>
+                        </li> -->
+                        {% endfor %}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="promo">
+            <div class="promo__inner">
+                <div class="container promo__container">
+                    <!-- Главная страничка -->
+                    {% block promo_content %}
+                    {% endblock %}
+                    <!--  -->
+                </div>
+            </div>
+        </section>
+        {% block categories_section %}
+        {% endblock %}
+
+        {% block brigade_section %}
+        {% endblock %}
+
+        {% block gallery_section %}
+        {% endblock %}
+
+        {% block feedbacks_section %}
+        {% endblock %}
+        
+        {% block services_section %}
+        {% endblock %}
+
+        {% block about_section %}
+        {% endblock %}
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__about">
+                <a class="footer__link" href="{% url 'about' %}">
+                    О нас
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

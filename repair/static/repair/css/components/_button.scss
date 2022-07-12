@@ -1,0 +1,14 @@
+@use '../abstracts/' as *;
+.btn {
+    background: $main-orange;
+    color: white;
+    border-radius: 16px;
+    border: 1px solid rgb(249, 180, 140);
+    padding: 8px 15px;
+    display: inline-block;
+    transition: 0.2s background;
+    &:hover {
+        border: 1px solid rgb(250, 196, 165);
+        background:rgb(251, 119, 42);
+    }
+}

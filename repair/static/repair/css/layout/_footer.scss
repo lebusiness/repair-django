@@ -1,0 +1,14 @@
+@use '../abstracts' as *;
+
+.footer {
+    background: #333;
+    padding: 30px 0;
+    font-family: 'Montserrat', sans-serif;
+    &__link {
+        color: white;
+        transition: 0.2s color;
+        &:hover {
+            color: $main-orange
+        }
+    }
+}

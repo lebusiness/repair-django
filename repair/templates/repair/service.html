@@ -1,0 +1,36 @@
+{% extends 'repair/base.html' %}
+
+{% block promo_content %}
+    <div class="promo__content">
+        <h1 class="title">{{ title }}</h1>
+        <p class="subtitle">{{ descr }}</p>
+    </div>
+{% endblock %}
+
+{% block services_section %}
+    <section class="service">  
+        <div class="container categories__container">
+            <h2 class="title--md">Об услуге</h2>
+            <div class="service__info">
+                <div class="service__img-wrap">
+                    <img src="{{ service_img.url }}" alt="услуга" class="service__img">
+                </div>
+                <div class="service__description">
+                    <div class="service__info-title">
+                        {{ title }}
+                    </div>
+                    <div class="service__info-description">
+                        {{ descr }}
+                    </div>
+                    <div class="service__info-hours">
+                        Количество часов работы: {{ time }}
+                    </div>
+                    <div class="service__info-price">
+                        Стоимость услуги {{ price }}₽
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
